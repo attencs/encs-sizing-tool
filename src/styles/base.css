@@ -1,0 +1,27 @@
+.base__content {
+	background: white;
+	padding: 20px;
+	box-shadow: -1px 14px 37px -17px rgba(222,229,232,1);
+	margin: 10px 0;
+	border-radius: 4px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #465d64;
+}
+
+p {
+	color: #85959a;
+}
+
+.button--primary {
+	background: #049fd9;
+	cursor: pointer;
+	width: 100%;
+	border: 0;
+}

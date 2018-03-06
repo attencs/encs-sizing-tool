@@ -1,0 +1,14 @@
+.card {
+	box-shadow: -1px 14px 37px -17px rgba(222,229,232,1);
+    border: 1px solid #e1e2e4;
+	padding: 10px;
+}
+
+.card__title {
+	border-bottom: 1px solid #eee;
+	padding-bottom: 6px;
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
