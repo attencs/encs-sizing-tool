@@ -98,7 +98,7 @@ class Calculator extends Component {
 					memory={this.props.requirements.ram}
 					disk={this.props.requirements.disk}
 					box={this.props.currentRecommendation.box}
-				recMemory={this.props.currentRecommendation.recMemory}-
+				  recMemory={this.props.currentRecommendation.recMemory}
 					recDisk={this.props.currentRecommendation.recDisk}
 					/>
 				</div>
