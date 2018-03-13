@@ -37,11 +37,11 @@ class Calculator extends Component {
 				{
 					id: 'routers',
 					vnfType: 'routers',
-					title: 'Virtual Routers',
+					title: 'Routers',
 					cards: this.props.selectedItems.routers,
 					columnHeader: {
 						addHandler: (id) => this._addNewCard(id),
-						buttonText: 'Add New Router'
+						buttonText: 'Add Router'
 					},
 					style: laneStyle,
 					cardStyle
@@ -53,19 +53,31 @@ class Calculator extends Component {
 					cards: this.props.selectedItems.firewalls,
 					columnHeader: {
 						addHandler: (id) => this._addNewCard(id),
-						buttonText: 'Add New Firewall'
+						buttonText: 'Add Firewall'
 					},
 					style: laneStyle,
 					cardStyle
 				},
 				{
-					id: 'caches',
-					vnfType: 'caches',
-					title: 'Cache VMs',
-					cards: this.props.selectedItems.caches,
+					id: 'vwaas',
+					vnfType: 'vwaas',
+					title: 'vWAAS',
+					cards: this.props.selectedItems.vwaas,
 					columnHeader: {
 						addHandler: (id) => this._addNewCard(id),
-						buttonText: 'Add New Cache'
+						buttonText: 'Add vWAAS'
+					},
+					style: laneStyle,
+					cardStyle
+				},
+				{
+					id: 'thirdparty',
+					vnfType: 'thirdparty',
+					title: 'Third-Party VNFs',
+					cards: this.props.selectedItems.thirdparty,
+					columnHeader: {
+						addHandler: (id) => this._addNewCard(id),
+						buttonText: 'Add VNF'
 					},
 					style: laneStyle,
 					cardStyle
@@ -90,7 +102,7 @@ class Calculator extends Component {
 			  <div className="base__content">
 				<header className="App-header">
 				  <h1 className="App-title">ENCS Sizing Tool</h1>
-				  <p>Gather hardware requirements and recommend a platform based on selected Cisco Virtual Network Functions.</p>
+				  <p>Gather hardware requirements and recommend a platform based on selected virtual network functions.</p>
 				</header>
 				<div>
 				  <CalculationPanel

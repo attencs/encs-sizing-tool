@@ -6,8 +6,9 @@ import uuid from 'uuid/v4';
 const initialState = {
 	cards: {
 		routers: [],
-		caches: [],
-		firewalls: []
+		vwaas: [],
+		firewalls: [],
+		thirdparty: []
 	},
 	requirements: {
 		cpu: 1,

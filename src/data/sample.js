@@ -171,7 +171,7 @@ const VNFs = [
 	},
 	{
 		id: 18,
-		type: "caches",
+		type: "vwaas",
 		name: "vWAAS - 200 Connections",
 		specs: {
 			vcpu: 1,
@@ -181,7 +181,7 @@ const VNFs = [
 	},
 	{
 		id: 19,
-		type: "caches",
+		type: "vwaas",
 		name: "vWAAS - 750 Connections",
 		specs: {
 			vcpu: 2,
@@ -191,7 +191,7 @@ const VNFs = [
 	},
 	{
 		id: 20,
-		type: "caches",
+		type: "vwaas",
 		name: "vWAAS - 1300 Connections",
 		specs: {
 			vcpu: 2,
@@ -201,7 +201,7 @@ const VNFs = [
 	},
 	{
 		id: 21,
-		type: "caches",
+		type: "vwaas",
 		name: "vWAAS - 2500 Connections",
 		specs: {
 			vcpu: 4,
@@ -211,7 +211,7 @@ const VNFs = [
 	},
 	{
 		id: 22,
-		type: "caches",
+		type: "vwaas",
 		name: "vWAAS - 6000 Connections",
 		specs: {
 			vcpu: 4,
@@ -221,7 +221,7 @@ const VNFs = [
 	},
 	{
 		id: 23,
-		type: "caches",
+		type: "vwaas",
 		name: "vWAAS - 12000 Connections",
 		specs: {
 			vcpu: 4,
@@ -238,7 +238,17 @@ const VNFs = [
 			memory: 8,
 			disk: 50
 		}
-	}
+	},
+  {
+    id: 25,
+    type: "thirdparty",
+    name: "Palo Alto FW",
+    specs: {
+      vcpu: 2,
+      memory: 4,
+      disk: 8
+    }
+  }
 ];
 
 export default VNFs;
