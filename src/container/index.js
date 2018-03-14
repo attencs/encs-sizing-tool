@@ -13,7 +13,8 @@ const initialState = {
 	requirements: {
 		cpu: 1,
 		ram: 2,
-		disk: 10
+		disk: 10,
+		poe: false
 	},
 	currentRecommendation: {
 		box: 'ENCS5104 (4 core)',
@@ -49,6 +50,12 @@ const reducer = (state = initialState, action) => {
 		newState.cards[lane] = removeVNF(desiredCards, selectedVNF.uuid);
 		console.log(newState);
 		newState.requirements = calculateRequirements(selectedVNF, state.requirements, true);
+		newState.currentRecommendation = calculateRecommendation(newState.requirements, state.currentRecommendation);
+		return newState;
+
+	case 'TOGGLE_POE':
+		newState = Object.assign({}, state);
+		newState.requirements.poe = action.poe;
 		newState.currentRecommendation = calculateRecommendation(newState.requirements, state.currentRecommendation);
 		return newState;
 
@@ -90,7 +97,7 @@ const calculateRecommendation = (requirements, existingRecommendation) => {
 	// Copy to prevent editing reference object
 	const newRecommendation = Object.assign({}, existingRecommendation);
 
-	newRecommendation.box = selectCpu(requirements.cpu);
+	newRecommendation.box = selectCpu(requirements.cpu, requirements.poe);
 	newRecommendation.recMemory = selectRam(requirements.ram);
 	newRecommendation.recDisk = selectDisk(requirements.disk);
 
@@ -109,12 +116,18 @@ const constructCard = (selectedVNF) => ({
 });
 
 
-const selectCpu = (cpu) => {
-    if(cpu >= 12) return 'N/A';
-    if(cpu >= 8) return 'ENCS5412 (12 core)';
-    if(cpu >= 6) return 'ENCS5408 (8 core)';
-    if(cpu >= 4) return 'ENCS5406 (6 core)';
-    return 'ENCS5104 (4 core)';
+const selectCpu = (cpu, poe) => {
+    // if(cpu >= 12) return 'N/A';
+    // if(cpu >= 8) return 'ENCS5412 (12 core)';
+    // if(cpu >= 6) return 'ENCS5408 (8 core)';
+    // if(cpu >= 4) return 'ENCS5406 (6 core)';
+    // return 'ENCS5104 (4 core)';
+
+		if(cpu < 4 && !poe) return 'ENCS5104 (4 core)';
+		if(cpu < 6 && !poe) return 'ENCS5406 (6 core)';
+		if(cpu < 8) return 'ENCS5408 (8 core)';
+		if(cpu <= 12) return 'ENCS5412 (12 core)';
+		return 'N/A';
 }
 
 

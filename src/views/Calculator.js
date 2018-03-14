@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Board from 'react-trello';
 import { connect } from 'react-redux';
-import { addVNF, deleteVNF } from '../actions/actionCreators';
+import { addVNF, deleteVNF, togglePOE } from '../actions/actionCreators';
 
 import CustomCard from './partials/Card';
 import CustomColumnHeader from './partials/ColumnHeader';
 import CalculationPanel from './partials/CalculationPanel';
+import SingleSelect from './partials/SingleSelect';
 
 import baseStyles from '../styles/base.css';
 
@@ -94,6 +95,12 @@ class Calculator extends Component {
 		// this.eventBus.publish({	type: 'ADD_CARD', laneId: 'misc', card });
 	}
 
+
+	_togglePOE = (poe) => {
+		this.props.togglePOE(poe);
+	}
+
+
 	render() {
 		const data = this._constructBoardData();
 
@@ -130,6 +137,16 @@ class Calculator extends Component {
 					  deleteHandler={this.props.deleteVNF} />
    				  </Board>
 				</div>
+				<div>
+					<SingleSelect
+					name="Power Over Ethernet"
+					options={[
+						{ value: true, label: 'Yes' },
+						{ value: false, label: 'No' }
+					]}
+					toggle={(poe) => this._togglePOE(poe)}
+					/>
+				</div>
 			  </div>
 			</div>
 		);
@@ -146,7 +163,8 @@ const mapStateToProps = state => ({
 // This will assign functions to be used as prop
 const mapDispatchToProps = (dispatch) => ({
 	addVNF: vnfType => dispatch(addVNF(vnfType)),
-	deleteVNF: vnfCard => dispatch(deleteVNF(vnfCard))
+	deleteVNF: vnfCard => dispatch(deleteVNF(vnfCard)),
+	togglePOE: poe => dispatch(togglePOE(poe))
 });
 
 // This will bind redux state to our calculator
