@@ -14,3 +14,8 @@ export const togglePOE = (poe) => ({
 	type: Types.TOGGLE_POE,
 	poe
 });
+
+export const selectNIM = (nim) => ({
+	type: Types.SELECT_NIM,
+	nim
+});

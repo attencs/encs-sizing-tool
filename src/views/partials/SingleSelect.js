@@ -9,14 +9,15 @@ class SingleSelect extends Component {
 		super(props);
 
 		this.state = {
-			value: null
+			selectValue: null
 		};
 	}
 
 
-	_onChange = (value) => {
-		this.setState({ value });
-		this.props.toggle(value);
+	_onChange = (selectValue) => {
+		this.setState({ selectValue });
+		console.log(selectValue)
+		this.props.onChange(selectValue);
 	};
 
 
@@ -36,7 +37,7 @@ class SingleSelect extends Component {
 					onChange={this._onChange}
 					options={this.props.options}
 					simpleValue
-					value={this.state.value}
+					value={this.state.selectValue}
 					/>
 				</header>
 			</div>

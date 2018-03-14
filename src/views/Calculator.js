@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Board from 'react-trello';
 import { connect } from 'react-redux';
-import { addVNF, deleteVNF, togglePOE } from '../actions/actionCreators';
+import { addVNF, deleteVNF, togglePOE, selectNIM } from '../actions/actionCreators';
 
 import CustomCard from './partials/Card';
 import CustomColumnHeader from './partials/ColumnHeader';
@@ -9,6 +9,8 @@ import CalculationPanel from './partials/CalculationPanel';
 import SingleSelect from './partials/SingleSelect';
 
 import baseStyles from '../styles/base.css';
+import NIMs from '../data/nims';
+
 
 const boardStyle = {
 	backgroundColor: 'transparent',
@@ -89,6 +91,17 @@ class Calculator extends Component {
 		return data;
 	}
 
+
+	_constructNIMOptions = () => {
+		NIMs.map((obj) => {
+	    obj.value = obj.label;
+	    return obj;
+		});
+
+		return NIMs;
+	}
+
+
 	_addNewCard = (vnfId) => {
 		this.props.addVNF(vnfId);
 		// Ignore this, this just force refreshes a component
@@ -101,8 +114,14 @@ class Calculator extends Component {
 	}
 
 
+	_selectNIM = (nim) => {
+		this.props.selectNIM(nim);
+	}
+
+
 	render() {
 		const data = this._constructBoardData();
+		const nim_options = this._constructNIMOptions();
 
 		return (
 			<div className="container">
@@ -144,7 +163,14 @@ class Calculator extends Component {
 						{ value: true, label: 'Yes' },
 						{ value: false, label: 'No' }
 					]}
-					toggle={(poe) => this._togglePOE(poe)}
+					onChange={(poe) => this._togglePOE(poe)}
+					/>
+				</div>
+				<div>
+				  <SingleSelect
+					name="Network Interface Modules"
+					options={nim_options}
+					onChange={(nim) => this._selectNIM(nim)}
 					/>
 				</div>
 			  </div>
@@ -164,7 +190,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch) => ({
 	addVNF: vnfType => dispatch(addVNF(vnfType)),
 	deleteVNF: vnfCard => dispatch(deleteVNF(vnfCard)),
-	togglePOE: poe => dispatch(togglePOE(poe))
+	togglePOE: poe => dispatch(togglePOE(poe)),
+	selectNIM: nim => dispatch(selectNIM(nim))
 });
 
 // This will bind redux state to our calculator

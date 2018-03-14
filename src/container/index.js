@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import VNFS from '../data/sample';
+import VNFS from '../data/vnfs';
 import find from 'lodash.find';
 import uuid from 'uuid/v4';
 
@@ -14,7 +14,8 @@ const initialState = {
 		cpu: 1,
 		ram: 2,
 		disk: 10,
-		poe: false
+		poe: false,
+		nim: null
 	},
 	currentRecommendation: {
 		box: 'ENCS5104 (4 core)',
@@ -59,6 +60,12 @@ const reducer = (state = initialState, action) => {
 		newState.currentRecommendation = calculateRecommendation(newState.requirements, state.currentRecommendation);
 		return newState;
 
+	case 'SELECT_NIM':
+	newState = Object.assign({}, state);
+	newState.requirements.nim = action.nim;
+	newState.currentRecommendation = calculateRecommendation(newState.requirements, state.currentRecommendation);
+	return newState;
+
 	default:
 		return state;
 	}
@@ -97,7 +104,7 @@ const calculateRecommendation = (requirements, existingRecommendation) => {
 	// Copy to prevent editing reference object
 	const newRecommendation = Object.assign({}, existingRecommendation);
 
-	newRecommendation.box = selectCpu(requirements.cpu, requirements.poe);
+	newRecommendation.box = selectCpu(requirements.cpu, requirements.poe, requirements.nim);
 	newRecommendation.recMemory = selectRam(requirements.ram);
 	newRecommendation.recDisk = selectDisk(requirements.disk);
 
@@ -116,14 +123,14 @@ const constructCard = (selectedVNF) => ({
 });
 
 
-const selectCpu = (cpu, poe) => {
+const selectCpu = (cpu, poe, nim) => {
     // if(cpu >= 12) return 'N/A';
     // if(cpu >= 8) return 'ENCS5412 (12 core)';
     // if(cpu >= 6) return 'ENCS5408 (8 core)';
     // if(cpu >= 4) return 'ENCS5406 (6 core)';
     // return 'ENCS5104 (4 core)';
 
-		if(cpu < 4 && !poe) return 'ENCS5104 (4 core)';
+		if(cpu < 4 && !poe && !nim) return 'ENCS5104 (4 core)';
 		if(cpu < 6 && !poe) return 'ENCS5406 (6 core)';
 		if(cpu < 8) return 'ENCS5408 (8 core)';
 		if(cpu <= 12) return 'ENCS5412 (12 core)';

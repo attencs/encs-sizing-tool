@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 import { connect } from 'react-redux';
 
-import VNFs from '../../data/sample';
+import VNFs from '../../data/vnfs';
 
 class CustomLaneHeader extends Component {
 	constructor(props) {
