@@ -25,3 +25,22 @@ p {
 	width: 100%;
 	border: 0;
 }
+
+.extras_row {
+	padding: 5px;
+	width: 100%;
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+
+.extras_nim {
+	padding: 10px;
+  flex-basis: 65%;
+}
+
+.extras_poe {
+	padding: 10px;
+  flex-basis: 35%;
+}

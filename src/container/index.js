@@ -124,17 +124,11 @@ const constructCard = (selectedVNF) => ({
 
 
 const selectCpu = (cpu, poe, nim) => {
-    // if(cpu >= 12) return 'N/A';
-    // if(cpu >= 8) return 'ENCS5412 (12 core)';
-    // if(cpu >= 6) return 'ENCS5408 (8 core)';
-    // if(cpu >= 4) return 'ENCS5406 (6 core)';
-    // return 'ENCS5104 (4 core)';
-
 		if(cpu < 4 && !poe && !nim) return 'ENCS5104 (4 core)';
 		if(cpu < 6 && !poe) return 'ENCS5406 (6 core)';
 		if(cpu < 8) return 'ENCS5408 (8 core)';
 		if(cpu <= 12) return 'ENCS5412 (12 core)';
-		return 'N/A';
+		return 'CSP-2100-X1';
 }
 
 

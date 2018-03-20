@@ -140,6 +140,25 @@ class Calculator extends Component {
 					recDisk={this.props.currentRecommendation.recDisk}
 					/>
 				</div>
+				<div className="extras_row">
+				<div className='extras_nim'>
+					<SingleSelect
+					name="Network Interface Modules"
+					options={nim_options}
+					onChange={(nim) => this._selectNIM(nim)}
+					/>
+				</div>
+				<div className='extras_poe'>
+					<SingleSelect
+					name="Power Over Ethernet"
+					options={[
+						{ value: true, label: 'Yes' },
+						{ value: false, label: 'No' }
+					]}
+					onChange={(poe) => this._togglePOE(poe)}
+					/>
+				</div>
+				</div>
 				<div>
 				  <Board
 					data={data}
@@ -155,23 +174,6 @@ class Calculator extends Component {
 					<CustomCard
 					  deleteHandler={this.props.deleteVNF} />
    				  </Board>
-				</div>
-				<div>
-					<SingleSelect
-					name="Power Over Ethernet"
-					options={[
-						{ value: true, label: 'Yes' },
-						{ value: false, label: 'No' }
-					]}
-					onChange={(poe) => this._togglePOE(poe)}
-					/>
-				</div>
-				<div>
-				  <SingleSelect
-					name="Network Interface Modules"
-					options={nim_options}
-					onChange={(nim) => this._selectNIM(nim)}
-					/>
 				</div>
 			  </div>
 			</div>

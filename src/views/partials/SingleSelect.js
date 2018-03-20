@@ -32,13 +32,14 @@ class SingleSelect extends Component {
 				<div>
 				<h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>{this.props.name}</h4>
 				</div>
-
-				<Select
-					onChange={this._onChange}
-					options={this.props.options}
-					simpleValue
-					value={this.state.selectValue}
-					/>
+				<div style={{marginTop: 5, fontSize: 13}}>
+					<Select
+						onChange={this._onChange}
+						options={this.props.options}
+						simpleValue
+						value={this.state.selectValue}
+						/>
+				</div>
 				</header>
 			</div>
 		)
