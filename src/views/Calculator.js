@@ -128,7 +128,7 @@ class Calculator extends Component {
 			  <div className="base__content">
 				<header className="App-header">
 				  <h1 className="App-title">ENCS Sizing Tool</h1>
-				  <p>Gather hardware requirements and recommend a platform based on selected virtual network functions.</p>
+				  <p>Gather hardware requirements and recommend a platform based on selected virtual network functions and platform options.</p>
 				</header>
 				<div>
 				  <CalculationPanel

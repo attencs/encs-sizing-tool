@@ -23,7 +23,7 @@ const CalculationPanel = (props) => {
 		  </div>
 
 		  <div className="calculation__recommend">
-			<h6> Based on your selections, we recommend the <b>{ props.box }</b> with  { props.recMemory } RAM and { props.recDisk } disk space.</h6>
+			<h6> Based on your selections, we recommend the <b>{ props.box }</b> with at least { props.recMemory } RAM and { props.recDisk } disk space.</h6>
 		  </div>
 		</div>
 	)
