@@ -139,8 +139,28 @@ const VNFs = [
 			disk: 8
 		}
 	},
+  {
+    id: 15,
+    type: "routers",
+    name: "vEdge - 100 Mbps",
+    specs: {
+      vcpu: 2,
+      memory: 4,
+      disk: 8
+    }
+  },
+  {
+    id: 16,
+    type: "routers",
+    name: "vEdge - 250 Mbps",
+    specs: {
+      vcpu: 2,
+      memory: 4,
+      disk: 8
+    }
+  },
 	{
-		id: 15,
+		id: 17,
 		type: "firewalls",
 		name: "ASAv5 - 100 Mbps",
 		specs: {
@@ -150,7 +170,7 @@ const VNFs = [
 		}
 	},
 	{
-		id: 16,
+		id: 18,
 		type: "firewalls",
 		name: "ASAv10 - 1 Gbps",
 		specs: {
@@ -160,7 +180,7 @@ const VNFs = [
 		}
 	},
 	{
-		id: 17,
+		id: 19,
 		type: "firewalls",
 		name: "ASAv30 - 2 Gbps",
 		specs: {
@@ -170,7 +190,7 @@ const VNFs = [
 		}
 	},
 	{
-		id: 18,
+		id: 20,
 		type: "vwaas",
 		name: "vWAAS - 200 Connections",
 		specs: {
@@ -180,7 +200,7 @@ const VNFs = [
 		}
 	},
 	{
-		id: 19,
+		id: 21,
 		type: "vwaas",
 		name: "vWAAS - 750 Connections",
 		specs: {
@@ -190,47 +210,7 @@ const VNFs = [
 		}
 	},
 	{
-		id: 20,
-		type: "vwaas",
-		name: "vWAAS - 1300 Connections",
-		specs: {
-			vcpu: 2,
-			memory: 6,
-			disk: 600
-		}
-	},
-	{
-		id: 21,
-		type: "vwaas",
-		name: "vWAAS - 2500 Connections",
-		specs: {
-			vcpu: 4,
-			memory: 8,
-			disk: 750
-		}
-	},
-	{
 		id: 22,
-		type: "vwaas",
-		name: "vWAAS - 6000 Connections",
-		specs: {
-			vcpu: 4,
-			memory: 11,
-			disk: 900
-		}
-	},
-	{
-		id: 23,
-		type: "vwaas",
-		name: "vWAAS - 12000 Connections",
-		specs: {
-			vcpu: 4,
-			memory: 12,
-			disk: 1000
-		}
-	},
-	{
-		id: 24,
 		type: "firewalls",
 		name: "NGFWv",
 		specs: {
@@ -240,7 +220,7 @@ const VNFs = [
 		}
 	},
   {
-    id: 25,
+    id: 23,
     type: "thirdparty",
     name: "Palo Alto FW",
     specs: {
