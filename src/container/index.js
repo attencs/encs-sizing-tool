@@ -39,6 +39,19 @@ const reducer = (state = initialState, action) => {
 		newState.currentRecommendation = calculateRecommendation(newState.requirements, state.currentRecommendation);
 		return newState;
 
+
+	case 'ADD_CUSTOM_VNF':
+		newState = Object.assign({}, state);
+		vnfType = action.vnf.type;
+		const custCard = constructCard(action.vnf);
+
+		newState.cards[vnfType].push(custCard);
+		newState.requirements = calculateRequirements(action.vnf, state.requirements);
+		newState.currentRecommendation = calculateRecommendation(newState.requirements, state.currentRecommendation);
+
+		return newState;
+
+
 	case 'DELETE_VNF':
 		newState = Object.assign({}, state);
 		// We will just reference the card instead of the id, should be fine as long as the state is not mutated
@@ -54,17 +67,20 @@ const reducer = (state = initialState, action) => {
 		newState.currentRecommendation = calculateRecommendation(newState.requirements, state.currentRecommendation);
 		return newState;
 
+
 	case 'TOGGLE_POE':
 		newState = Object.assign({}, state);
 		newState.requirements.poe = action.poe;
 		newState.currentRecommendation = calculateRecommendation(newState.requirements, state.currentRecommendation);
 		return newState;
 
+
 	case 'SELECT_NIM':
-	newState = Object.assign({}, state);
-	newState.requirements.nim = action.nim;
-	newState.currentRecommendation = calculateRecommendation(newState.requirements, state.currentRecommendation);
-	return newState;
+		newState = Object.assign({}, state);
+		newState.requirements.nim = action.nim;
+		newState.currentRecommendation = calculateRecommendation(newState.requirements, state.currentRecommendation);
+		return newState;
+
 
 	default:
 		return state;
@@ -116,7 +132,7 @@ const calculateRecommendation = (requirements, existingRecommendation) => {
 const constructCard = (selectedVNF) => ({
 	// Put everything else in here, and override
 	...selectedVNF,
-	id: selectedVNF.id,
+	id: selectedVNF.id || '',
 	uuid: uuid(),
 	title: selectedVNF.name,
 	description: selectedVNF.description || ''

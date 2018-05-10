@@ -35,6 +35,12 @@ p {
 }
 
 
+.extras_custom_vnf {
+	padding: 5px;
+	text-align: center;
+}
+
+
 .extras_nim {
 	padding: 10px;
   flex-basis: 65%;

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Board from 'react-trello';
 import { connect } from 'react-redux';
-import { addVNF, deleteVNF, togglePOE, selectNIM } from '../actions/actionCreators';
+import { addVNF, deleteVNF, togglePOE, selectNIM, addCustomVNF } from '../actions/actionCreators';
 
 import CustomCard from './partials/Card';
 import CustomColumnHeader from './partials/ColumnHeader';
 import CalculationPanel from './partials/CalculationPanel';
 import SingleSelect from './partials/SingleSelect';
+import ModalForm from './partials/ModalForm';
 
 import baseStyles from '../styles/base.css';
 import NIMs from '../data/nims';
@@ -118,6 +119,10 @@ class Calculator extends Component {
 		this.props.selectNIM(nim);
 	}
 
+	_addCustomVNF = (vnf) => {
+		this.props.addCustomVNF(vnf);
+	}
+
 
 	render() {
 		const data = this._constructBoardData();
@@ -175,6 +180,11 @@ class Calculator extends Component {
 					  deleteHandler={this.props.deleteVNF} />
    				  </Board>
 				</div>
+				<div className="extras_custom_vnf">
+					<ModalForm
+					submit={this._addCustomVNF}
+					/>
+				</div>
 			  </div>
 			</div>
 		);
@@ -193,7 +203,8 @@ const mapDispatchToProps = (dispatch) => ({
 	addVNF: vnfType => dispatch(addVNF(vnfType)),
 	deleteVNF: vnfCard => dispatch(deleteVNF(vnfCard)),
 	togglePOE: poe => dispatch(togglePOE(poe)),
-	selectNIM: nim => dispatch(selectNIM(nim))
+	selectNIM: nim => dispatch(selectNIM(nim)),
+	addCustomVNF: vnf => dispatch(addCustomVNF(vnf))
 });
 
 // This will bind redux state to our calculator

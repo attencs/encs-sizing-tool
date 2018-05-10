@@ -19,3 +19,8 @@ export const selectNIM = (nim) => ({
 	type: Types.SELECT_NIM,
 	nim
 });
+
+export const addCustomVNF = (vnf) => ({
+	type: Types.ADD_CUSTOM_VNF,
+	vnf
+});
