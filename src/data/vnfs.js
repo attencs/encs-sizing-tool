@@ -221,71 +221,11 @@ const VNFs = [{
     {
         id: 23,
         type: "thirdparty",
-        name: "Windows (Small)",
-        specs: {
-            vcpu: 1,
-            memory: 2,
-            disk: 500
-        }
-    },
-    {
-        id: 24,
-        type: "thirdparty",
-        name: "Windows (Medium)",
+        name: "Palo Alto FW",
         specs: {
             vcpu: 2,
             memory: 4,
-            disk: 1000
-        }
-    },
-    {
-        id: 25,
-        type: "thirdparty",
-        name: "Windows (Large)",
-        specs: {
-            vcpu: 4,
-            memory: 8,
-            disk: 1000
-        }
-    },
-    {
-        id: 26,
-        type: "thirdparty",
-        name: "Linux (XSmall)",
-        specs: {
-            vcpu: 1,
-            memory: 1,
-            disk: 50
-        }
-    },
-    {
-        id: 27,
-        type: "thirdparty",
-        name: "Linux (Small)",
-        specs: {
-            vcpu: 1,
-            memory: 2,
-            disk: 100
-        }
-    },
-    {
-        id: 28,
-        type: "thirdparty",
-        name: "Linux (Medium)",
-        specs: {
-            vcpu: 2,
-            memory: 4,
-            disk: 200
-        }
-    },
-    {
-        id: 29,
-        type: "thirdparty",
-        name: "Linux (Large)",
-        specs: {
-            vcpu: 4,
-            memory: 8,
-            disk: 300
+            disk: 8
         }
     }
 ];
