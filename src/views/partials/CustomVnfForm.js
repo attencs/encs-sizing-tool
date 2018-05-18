@@ -92,11 +92,11 @@ class CustomVnfForm extends Component {
             <input id="cpu" type="text" value={this.state.cpu} onChange={this._onChangeCpu} />
           </div>
           <div className="vnf_ram">
-            <label for="ram">RAM</label>
+            <label for="ram">RAM (GB)</label>
             <input id="ram" type="text" value={this.state.ram} onChange={this._onChangeRam} />
           </div>
           <div className="vnf_disk">
-            <label for="disk">Disk (in GB)</label>
+            <label for="disk">Disk (GB)</label>
             <input id="disk" type="text" value={this.state.disk} onChange={this._onChangeDisk} />
           </div>
           <div className="vnf_submit_button">
