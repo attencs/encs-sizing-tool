@@ -1,0 +1,54 @@
+.hidden {
+	display:none; 
+}
+
+.custom_vnf_row {
+	padding: 5px;
+	width: 100%;
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+
+.vnf_name {
+	padding: 10px;
+  flex-basis: 30%;
+}
+
+.vnf_cpu {
+	padding: 10px;
+  flex-basis: 15%;
+}
+
+.vnf_ram {
+	padding: 10px;
+  flex-basis: 15%;
+}
+
+.vnf_disk {
+	padding: 10px;
+  flex-basis: 20%;
+}
+
+.vnf_submit_button {
+	padding: 15px;
+	align-self: flex-end;
+	flex-basis: 20%;
+}
+
+.custom_vnf_title_row {
+	padding: 5px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.custom_title {
+	padding: 10px;
+	flex-basis: 50%;
+}
+
+.custom_add {
+	align-self: flex-end;
+}

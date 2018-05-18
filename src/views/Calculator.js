@@ -7,7 +7,7 @@ import CustomCard from './partials/Card';
 import CustomColumnHeader from './partials/ColumnHeader';
 import CalculationPanel from './partials/CalculationPanel';
 import SingleSelect from './partials/SingleSelect';
-import ModalForm from './partials/ModalForm';
+import CustomVnfForm from './partials/CustomVnfForm';
 
 import baseStyles from '../styles/base.css';
 import NIMs from '../data/nims';
@@ -180,11 +180,12 @@ class Calculator extends Component {
 					  deleteHandler={this.props.deleteVNF} />
    				  </Board>
 				</div>
+				<br />
 				<div className="extras_custom_vnf">
-					<ModalForm
-					submit={this._addCustomVNF}
-					/>
-				</div>
+				   <CustomVnfForm
+				   submit={this._addCustomVNF}
+				  />
+					</div>
 			  </div>
 			</div>
 		);
