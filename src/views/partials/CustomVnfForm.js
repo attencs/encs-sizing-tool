@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'reactstrap';
 import formStyles from './forms.css';
 
 
@@ -72,19 +71,6 @@ class CustomVnfForm extends Component {
     return;
 
   }
-
-
-  // <div className="custom_vnf_title_row">
-  //   <div className="custom_title">
-  //     <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Add Custom VNF</h4>
-  //   </div>
-  //   <div className="custom_add">
-  //     <button className="btn btn-primary" onClick={this.toggle}>Click to add a custom VNF</button>
-  //   </div>
-  // </div>
-
-
-  // <button value={this.state.isOpen ? openText: closedText} className="btn btn-primary" onClick={this.toggle}></button>
 
   render() {
     const isOpen = this.state.isOpen;
