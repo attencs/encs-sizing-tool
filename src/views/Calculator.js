@@ -133,7 +133,10 @@ class Calculator extends Component {
 			  <div className="base__content">
 				<header className="App-header">
 				  <h1 className="App-title">ENCS Sizing Tool</h1>
-				  <p>Gather hardware requirements and recommend a platform based on selected virtual network functions and platform options.</p>
+				  <p>With the Cisco ENCS 5000 Series, you can deploy network services in minutes through the virtualization of all your services
+					in the branch. The ENCS 5000 Series provides service agility and density needed for the branch that may
+					have limited IT resources. Use this tool to gather hardware requirements and recommend a
+					platform based on selected virtual network functions and platform options.</p>
 				</header>
 				<div>
 				  <CalculationPanel
