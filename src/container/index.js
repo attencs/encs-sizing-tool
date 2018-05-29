@@ -1,7 +1,10 @@
 import { createStore } from 'redux';
 import VNFS from '../data/vnfs';
+import encsModels from '../data/encsModels';
 import find from 'lodash.find';
 import uuid from 'uuid/v4';
+
+
 
 const initialState = {
 	cards: {
@@ -18,7 +21,7 @@ const initialState = {
 		nim: null
 	},
 	currentRecommendation: {
-		box: 'ENCS5104 (4 core)',
+		box: encsModels.encs5104,
 		recMemory: '8 GB',
 		recDisk: '100 GB'
 	}
@@ -140,11 +143,11 @@ const constructCard = (selectedVNF) => ({
 
 
 const selectCpu = (cpu, poe, nim) => {
-		if(cpu < 4 && !poe && !nim) return 'ENCS5104 (4 core)';
-		if(cpu < 6 && !poe) return 'ENCS5406 (6 core)';
-		if(cpu < 8) return 'ENCS5408 (8 core)';
-		if(cpu <= 12) return 'ENCS5412 (12 core)';
-		return 'CSP-2100-X1';
+		if(cpu <= 4 && !poe && !nim) return encsModels.encs5104;
+		if(cpu <= 6 && !poe) return encsModels.encs5406;
+		if(cpu <= 8) return encsModels.encs5408;
+		if(cpu <= 12) return encsModels.encs5412;
+		return encsModels.csp2100;
 }
 
 

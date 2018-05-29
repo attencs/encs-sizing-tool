@@ -2,6 +2,16 @@ import React, { component } from 'react';
 import calculationStyle from './calcPanel.css';
 
 const CalculationPanel = (props) => {
+
+	const recommendUpgrade = (props.box.cores == props.cpu) && !(props.box.name == 'CSP-2100-X1');
+
+	// figure out how to bold this later
+
+	const recommendHeader = recommendUpgrade ?
+		( <h6> Please note that you have allocated all of the CPU cores on your <b>{ props.box.name }</b>.
+			We recommend upgrading to the <b>{ props.box.nextModel }</b> to ensure adequate headroom for additional VNFs. </h6> )
+		 : '';
+
 	return (
 		<div className="calculation">
 		  <div className="calculation__required">
@@ -23,7 +33,8 @@ const CalculationPanel = (props) => {
 		  </div>
 
 		  <div className="calculation__recommend">
-			<h6> Based on your selections, we recommend the <b>{ props.box }</b> with at least { props.recMemory } RAM and { props.recDisk } disk space.</h6>
+			<h6> Based on your selections, you need at least the <b>{ props.box.name }</b> with { props.recMemory } RAM and { props.recDisk } disk space.</h6>
+			{ recommendHeader }
 		  </div>
 		</div>
 	)
