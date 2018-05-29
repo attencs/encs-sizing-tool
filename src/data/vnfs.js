@@ -221,13 +221,73 @@ const VNFs = [{
     {
         id: 23,
         type: "thirdparty",
-        name: "Palo Alto FW",
+        name: "Palo Alto  - 200 Mbps",
         specs: {
             vcpu: 2,
             memory: 4,
-            disk: 8
+            disk: 60
         }
-    }
+    },
+    {
+        id: 24,
+        type: "thirdparty",
+        name: "Palo Alto  - 2 Gbps",
+        specs: {
+            vcpu: 2,
+            memory: 6.5,
+            disk: 60
+        }
+    },
+    {
+        id: 25,
+        type: "thirdparty",
+        name: "Thousand Eyes",
+        specs: {
+            vcpu: 2,
+            memory: 2,
+            disk: 20
+        }
+    },
+    {
+        id: 26,
+        type: "thirdparty",
+        name: "Fortinet - 1 Gbps",
+        specs: {
+            vcpu: 2,
+            memory: 8,
+            disk: 1
+        }
+    },
+    {
+        id: 27,
+        type: "thirdparty",
+        name: "Infovista Ipanema Engine - 20 Mbps",
+        specs: {
+            vcpu: 1,
+            memory: 2,
+            disk: 31
+        }
+    },
+    {
+        id: 28,
+        type: "thirdparty",
+        name: "Infovista Ipanema Engine - 100 Mbps",
+        specs: {
+            vcpu: 2,
+            memory: 4,
+            disk: 61
+        }
+    },
+    {
+        id: 29,
+        type: "thirdparty",
+        name: "Infovista Ipanema Engine - 300 Mbps",
+        specs: {
+            vcpu: 4,
+            memory: 8,
+            disk: 101
+        }
+    },
 ];
 
 export default VNFs;
