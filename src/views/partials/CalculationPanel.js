@@ -3,7 +3,7 @@ import calculationStyle from './calcPanel.css';
 
 const CalculationPanel = (props) => {
 
-	const recommendUpgrade = (props.box.cores == props.cpu) && !(props.box.name == 'CSP-2100-X1');
+	const recommendUpgrade = (props.box.cores === props.cpu) && !(props.box.name === 'CSP-2100-X1');
 
 	// figure out how to bold this later
 

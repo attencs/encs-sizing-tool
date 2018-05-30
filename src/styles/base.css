@@ -50,3 +50,8 @@ p {
 	padding: 10px;
   flex-basis: 35%;
 }
+
+.links_row {
+	margin: auto;
+	text-align: center;
+}

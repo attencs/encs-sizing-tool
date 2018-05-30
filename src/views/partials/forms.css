@@ -1,5 +1,5 @@
 .hidden {
-	display:none; 
+	display:none;
 }
 
 .custom_vnf_row {
@@ -51,4 +51,9 @@
 
 .custom_add {
 	align-self: flex-end;
+}
+
+.input_warning {
+	margin: auto;
+	text-align: center;
 }

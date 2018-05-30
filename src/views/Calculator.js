@@ -138,6 +138,7 @@ class Calculator extends Component {
 					have limited IT resources. Use this tool to gather hardware requirements and recommend a
 					platform based on selected virtual network functions and platform options.</p>
 				</header>
+				<br />
 				<div>
 				  <CalculationPanel
 					cpu={this.props.requirements.cpu}
@@ -188,7 +189,14 @@ class Calculator extends Component {
 				   <CustomVnfForm
 				   submit={this._addCustomVNF}
 				  />
-					</div>
+				</div>
+				<br />
+				<br />
+				<br />
+				<div className="links_row">
+					<h6>For more information see: <a href="https://www.cisco.com/go/enfv" target="_blank">ENFV Overview</a> and
+					<a href="https://www.cisco.com/c/en/us/products/routers/5000-series-enterprise-network-compute-system/index.html" target="_blank"> ENCS Overview</a></h6>
+				</div>
 			  </div>
 			</div>
 		);

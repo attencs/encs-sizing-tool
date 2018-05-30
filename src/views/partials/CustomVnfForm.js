@@ -82,6 +82,9 @@ class CustomVnfForm extends Component {
         <input type="button" value={this.state.isOpen ? openText: closedText} onClick={this.toggle} />
         <br />
         <br />
+        <div className={isOpen ? "input_warning": "hidden"}>
+          <p>Please note that CPU, RAM, and Disk inputs only accept numbers.</p>
+        </div>
         <div className={isOpen ? "custom_vnf_row": "hidden"}>
           <div className="vnf_name">
             <label for="name">Name</label>
@@ -89,15 +92,15 @@ class CustomVnfForm extends Component {
           </div>
           <div className="vnf_cpu">
             <label for="cpu">CPUs</label>
-            <input id="cpu" type="text" value={this.state.cpu} onChange={this._onChangeCpu} />
+            <input id="cpu" type="number" value={this.state.cpu} onChange={this._onChangeCpu} />
           </div>
           <div className="vnf_ram">
             <label for="ram">RAM (GB)</label>
-            <input id="ram" type="text" value={this.state.ram} onChange={this._onChangeRam} />
+            <input id="ram" type="number" value={this.state.ram} onChange={this._onChangeRam} />
           </div>
           <div className="vnf_disk">
             <label for="disk">Disk (GB)</label>
-            <input id="disk" type="text" value={this.state.disk} onChange={this._onChangeDisk} />
+            <input id="disk" type="number" value={this.state.disk} onChange={this._onChangeDisk} />
           </div>
           <div className="vnf_submit_button">
             <button className="btn btn-primary" onClick={this.submitForm}>Submit</button>
