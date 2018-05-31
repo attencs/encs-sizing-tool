@@ -63,18 +63,6 @@ class Calculator extends Component {
 					cardStyle
 				},
 				{
-					id: 'vwaas',
-					vnfType: 'vwaas',
-					title: 'vWAAS',
-					cards: this.props.selectedItems.vwaas,
-					columnHeader: {
-						addHandler: (id) => this._addNewCard(id),
-						buttonText: 'Add vWAAS'
-					},
-					style: laneStyle,
-					cardStyle
-				},
-				{
 					id: 'thirdparty',
 					vnfType: 'thirdparty',
 					title: 'Third-Party VNFs',
