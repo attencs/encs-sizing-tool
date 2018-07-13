@@ -18,7 +18,8 @@ const initialState = {
 		ram: 2,
 		disk: 10,
 		poe: false,
-		nim: null
+		nim: null,
+		ssd: false
 	},
 	currentRecommendation: {
 		box: encsModels.encs5104,
@@ -38,7 +39,8 @@ const reducer = (state = initialState, action) => {
 		const newCard = constructCard(selectedVNF);
 		// Push the card to this
 		newState.cards[vnfType].push(newCard);
-		newState.requirements = calculateRequirements(selectedVNF, state.requirements);
+		let allCards = newState.cards;
+		newState.requirements = calculateRequirements(allCards, selectedVNF, state.requirements);
 		newState.currentRecommendation = calculateRecommendation(newState.requirements, state.currentRecommendation);
 		return newState;
 
@@ -49,7 +51,8 @@ const reducer = (state = initialState, action) => {
 		const custCard = constructCard(action.vnf);
 
 		newState.cards[vnfType].push(custCard);
-		newState.requirements = calculateRequirements(action.vnf, state.requirements);
+		allCards = newState.cards;
+		newState.requirements = calculateRequirements(allCards, action.vnf, state.requirements);
 		newState.currentRecommendation = calculateRecommendation(newState.requirements, state.currentRecommendation);
 
 		return newState;
@@ -66,7 +69,8 @@ const reducer = (state = initialState, action) => {
 	//	console.log(removeVNF(desiredCards, selectedVNF.uuid);
 		newState.cards[lane] = removeVNF(desiredCards, selectedVNF.uuid);
 		console.log(newState);
-		newState.requirements = calculateRequirements(selectedVNF, state.requirements, true);
+		allCards = newState.cards;
+		newState.requirements = calculateRequirements(allCards, selectedVNF, state.requirements, true);
 		newState.currentRecommendation = calculateRecommendation(newState.requirements, state.currentRecommendation);
 		return newState;
 
@@ -91,7 +95,7 @@ const reducer = (state = initialState, action) => {
 };
 
 // @TODO: Add Test for this
-const calculateRequirements = (selectedVNF, existingRequirements, subtract = false) => {
+const calculateRequirements = (allCards, selectedVNF, existingRequirements, subtract = false) => {
 	if (!selectedVNF) {
 		console.log('This VNF was not found');
 		return existingRequirements;
@@ -104,10 +108,14 @@ const calculateRequirements = (selectedVNF, existingRequirements, subtract = fal
 		newRequirements.cpu -= selectedVNF.specs.vcpu;
 		newRequirements.ram -= selectedVNF.specs.memory;
 		newRequirements.disk -= selectedVNF.specs.disk;
+		newRequirements.ssd = needSSD(allCards);
 	} else {
 		newRequirements.cpu += selectedVNF.specs.vcpu;
 		newRequirements.ram += selectedVNF.specs.memory;
 		newRequirements.disk += selectedVNF.specs.disk;
+		if(selectedVNF.specs.ssd) {
+			newRequirements.ssd = true;
+		}
 	}
 
 	return newRequirements;
@@ -166,6 +174,36 @@ const selectDisk = (disk) => {
     if(disk >= 250) return '1 TB';
     if(disk >= 100) return '250 GB';
     return '100 GB';
+}
+
+const needSSD = (selectedVNFs) => {
+
+	// for(let i = 0; i < selectedVNFs.length; i++){
+	//    let lane = myArray[i].child;
+	//    for(let j = 0; j < lane.length; j++){
+	//   		if(lane[j].specs.ssd) return true;
+	//    }
+	// }
+
+	// let ssd = false;
+	//
+	// Object.keys(selectedVNFs).forEach(function (lane) {
+	// 	lane.forEach(function (vnf) {
+	// 		if(vnf.specs.ssd) ssd = true;
+	// 	});
+	// });
+
+	for (var lane in selectedVNFs) {
+    if (selectedVNFs.hasOwnProperty(lane)) {
+        // console.log(key + " -> " + selectedVNFs[key].length);
+				for(let i = 0; i < selectedVNFs[lane].length; i++) {
+					console.log(selectedVNFs[lane][i]);
+					if(selectedVNFs[lane][i].specs.ssd) return true;
+				}
+    }
+	}
+
+	return false;
 }
 
 // @TODO: Add Test

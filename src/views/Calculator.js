@@ -137,6 +137,10 @@ class Calculator extends Component {
 					in the branch. The ENCS 5000 Series provides service agility and density needed for the branch that may
 					have limited IT resources. Use this tool to gather hardware requirements and recommend a
 					platform based on selected virtual network functions and platform options.</p>
+					<p>Please note that this tool was developed to prevent under-sizing an ENCS
+					based on the resource requirements of selected VNFs and hardware features. It was <b>not</b> designed to predict throughput or performance
+					(which will vary based on VNF features and service chain).
+					</p>
 				</header>
 				<br />
 				<div>
@@ -147,6 +151,7 @@ class Calculator extends Component {
 					box={this.props.currentRecommendation.box}
 				  recMemory={this.props.currentRecommendation.recMemory}
 					recDisk={this.props.currentRecommendation.recDisk}
+					needSSD={this.props.requirements.ssd}
 					/>
 				</div>
 				<div className="extras_row">
